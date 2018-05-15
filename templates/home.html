@@ -33,7 +33,18 @@
                       <label for="phone"><span class="glyphicon glyphicon-phone"></span> Phone</label>
                       <input type="text" class="form-control" id="phone" name="phone" pattern="[1-9][0-9]{9}" placeholder="Enter Phone" required>
                     </div>
-
+                    <div class="form-group">
+                      <label for="over_21">Over 21?</label>
+                        <input type="radio" name="over_21" value="Y" checked> Yes
+                        <input type="radio" name="over_21" value="N"> No
+                    </div>
+                    <div class="form-group">
+                      <label for="phone_type">Select your phone type</label>
+                        <select name="phone_type" required>
+                            <option value="iphone">Iphone</option>
+                            <option value="android">Android</option>
+                        </select>
+                    </div>
                     <div class="checkbox">
                       <label><input type="checkbox" value="" checked>Remember me</label>
                     </div>

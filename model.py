@@ -19,6 +19,8 @@ class Applicant(db.Model):
     first_name = db.Column(db.String(64), nullable=False)
     last_name = db.Column(db.String(64), nullable=False)
     phone = db.Column(db.String(20),nullable=False)
+    phone_type = db.Column(db.String(20),nullable=False)
+    over_21 = db.Column(db.String(1), nullable=False) # may be store it as boolean
     date_applied = db.Column(db.DateTime, nullable=False, index=True)
     status = db.Column(db.String(64), nullable=False)
     

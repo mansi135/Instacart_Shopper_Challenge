@@ -66,6 +66,14 @@
           <td id="phone">{{ shopper.phone }}</td>
         </tr>
         <tr>
+          <th>Phone Type :</th>
+          <td id="phone_type">{{ shopper.phone_type }}</td>
+        </tr>
+        <tr>
+          <th>Over_21 :</th>
+          <td id="over_21">{{ shopper.over_21 }}</td>
+        </tr>
+        <tr>
           <th>Applied On:</th>
           <td>{{ shopper.date_applied }}</td>
         </tr>
@@ -106,7 +114,18 @@
                       <label for="phone">Phone</label>
                       <input type="text" class="form-control" name="phone" pattern="[1-9][0-9]{9}" value="{{ shopper.phone }}">
                     </div>                      
-                    
+                    <div class="form-group">
+                      <label for="over_21">Over 21?</label>
+                        <input type="radio" name="over_21" value="Y" checked> Yes
+                        <input type="radio" name="over_21" value="N"> No
+                    </div>
+                    <div class="form-group">
+                      <label for="phone_type">Select your phone type</label>
+                        <select name="phone_type" id="sel" required>
+                            <option value="iphone">Iphone</option>
+                            <option value="android">Android</option>
+                        </select>
+                    </div>
                     <button type="submit" class="btn btn-success" style="float: right;">Update</button>
                 </form>
                 <button class="btn btn-success" id="cancel">Cancel</button>
@@ -133,11 +152,14 @@
 
             $.post('/edit-application', data, function(response) {
               if (response.status === 'OK') {
+
                 $('#edit-modal').modal('hide');
                 $('#fname').html($('input[name=fname]').val());
                 $('#lname').html($('input[name=lname]').val());
                 $('#phone').html($('input[name=phone]').val());
                 $('#email').html($('input[name=email]').val());
+                $('#phone_type').html($('#sel option:selected').text());
+                $('#over_21').html($('input[name=over_21]:checked').val());
                 $('#welcome-name').html($('input[name=fname]').val());
                 $('#inner').html("Your application has been successfully updated");
                 $('#updated').show();

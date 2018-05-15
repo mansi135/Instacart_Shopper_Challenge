@@ -61,6 +61,8 @@ def handle_registration_form():
     session['fname'] = applicant['fname']
     session['lname'] = applicant['lname']
     session['phone'] = applicant['phone']
+    session['phone_type'] = applicant['phone_type']
+    session['over_21'] = applicant['over_21']
 
     return jsonify({'msg': "Please consent the background check.", 'status': "OK"})
 
@@ -86,6 +88,8 @@ def show_confirmation():
     shopper_object['last_name'] = session['lname']  
     shopper_object['phone'] = session['phone']   
     shopper_object['email'] = session['email'] 
+    shopper_object['phone_type'] = session['phone_type']
+    shopper_object['over_21'] = session['over_21']
     shopper_object['date_applied'] = session['date_applied']
     shopper_object['status'] = session['status']  
     shopper_object['_id'] = random.randint(1, 100000) # in real database it will be autoinc primary key
@@ -173,6 +177,8 @@ def edit():
             shopper.first_name = edited_info['fname']
             shopper.last_name = edited_info['lname']
             shopper.phone = edited_info['phone']
+            shopper.phone_type = edited_info['phone_type']
+            shopper.over_21 = edited_info['over_21']
 
             session['email'] = shopper.email
 
