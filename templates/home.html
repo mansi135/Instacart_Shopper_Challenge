@@ -78,6 +78,35 @@
     
 {% block javascript %}
 
+<script type="text/javascript">
+    $(document).ready(function(){
+        
+        $('#register-modal').modal('show');
 
+        $("#register").on("submit", function(evt) {
+            evt.preventDefault();
+
+            //Using ajax request to the server
+            data = $('#register').serialize();
+            console.log(data);
+
+            $.post("/register", data,
+                function(response) {
+                    if (response.status === 'OK') {
+                        $('#background-modal').modal('show');
+                        $('#register-modal').modal('hide');
+                    } else {
+                        alert(response.msg);
+                    }  
+                });
+        });
+
+        $('#back').on('click', function() {
+            $('#background-modal').modal('hide');
+            $('#register-modal').modal('show');
+        })
+
+    });
+</script>
 
 {% endblock %}
