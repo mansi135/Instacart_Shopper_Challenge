@@ -1,0 +1,83 @@
+{% extends 'base.html' %}
+
+{% block title %}User Registration{% endblock %}
+
+{% block content %}
+
+<!-- Register Modal -->
+<div class="modal fade" role="dialog" data-backdrop="static" data-keyboard="false" id="register-modal" style="margin-top: 5em">
+      <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header" style="padding:20px 50px">
+                <h4 class="modal-title">Apply Now</h4>
+              </div>
+              <div class="modal-body" style="padding:40px 50px;">
+                <form role="form" action="/register" method="POST" id="register">
+                    <div class="form-group">
+                      <label for="email"><span class="glyphicon glyphicon-envelope"></span> Email</label>
+                      <input type="email" class="form-control" id="email" name="email" placeholder="john.doe@gmail.com" required>
+                    </div>
+                    <div class="form-group">
+                      <label for="pswd"><span class="glyphicon glyphicon-eye-open"></span> Password</label>
+                      <input type="password" class="form-control" id="pswd" name="pswd" placeholder="Enter password" required>
+                    </div>
+                    <div class="form-group">
+                      <label for="fname"><span class="glyphicon glyphicon-user"></span> First Name</label>
+                      <input type="text" class="form-control" id="fname" name="fname" placeholder="John" required>
+                    </div>
+                    <div class="form-group">
+                      <label for="fname"><span class="glyphicon glyphicon-user"></span> Last Name</label>
+                      <input type="text" class="form-control" id="lname" name="lname" placeholder="Doe" required>
+                    </div>
+                    <div class="form-group">
+                      <label for="phone"><span class="glyphicon glyphicon-phone"></span> Phone</label>
+                      <input type="text" class="form-control" id="phone" name="phone" pattern="[1-9][0-9]{9}" placeholder="Enter Phone" required>
+                    </div>
+
+                    <div class="checkbox">
+                      <label><input type="checkbox" value="" checked>Remember me</label>
+                    </div>
+                      
+                    <button type="submit" class="btn btn-success btn-block"><span class="glyphicon glyphicon-off"></span> Next</button>
+
+                    <br>
+                    <div style="float: right;">
+                        Already a Shopper? <a href="/login">Login</a>
+                    </div>
+                  </form>
+
+                </div>
+            </div>
+      </div>
+ </div>
+
+
+
+<!-- Background Check Modal -->
+<div class="modal fade" role="dialog" data-backdrop="static" data-keyboard="false" id="background-modal" style="margin-top: 5em">
+      <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header" style="padding:25px 50px">
+                <h4 class="modal-title">Instacart Background Check</h4>
+              </div>
+              <div class="modal-body" style="padding:40px 50px;">
+                    <ul>
+                        <li> I am legally authorized to work in USA </li>
+                        <li> I hereby authorize Instacart to perform my background check to evaluate whether I a qualify as a good fit for this job </li>
+                        <li> Instacart may outsource the background check to a third party like 'Checkr' and I am willing to share my information with this outsourcing firm to initiate my background check anytime after the date of my application</li>
+                    </ul>
+                    <button class="btn btn-success" id="back">Back</button>
+                    <a href="/confirmation" class="btn btn-success" style="float: right;">Agree</a>
+              </div>
+            </div>
+      </div>
+ </div>
+
+
+{% endblock %}
+    
+{% block javascript %}
+
+
+
+{% endblock %}
