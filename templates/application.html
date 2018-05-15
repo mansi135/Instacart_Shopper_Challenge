@@ -118,5 +118,43 @@
 
 </body>
 
+<script>
 
+    $(document).ready(function() { 
+      
+          $('#updated').hide();
+
+          // Make an ajax-request to /edit-application end point
+          $('#edit').on('submit', function(evt) {
+
+            evt.preventDefault();
+
+            data = $('#edit').serialize();
+
+            $.post('/edit-application', data, function(response) {
+              if (response.status === 'OK') {
+                $('#edit-modal').modal('hide');
+                $('#fname').html($('input[name=fname]').val());
+                $('#lname').html($('input[name=lname]').val());
+                $('#phone').html($('input[name=phone]').val());
+                $('#email').html($('input[name=email]').val());
+                $('#welcome-name').html($('input[name=fname]').val());
+                $('#inner').html("Your application has been successfully updated");
+                $('#updated').show();
+              } else {
+                alert(response.msg);
+              }
+            });
+          });
+
+          $('#cancel').on('click', function() {
+              $('#edit-modal').modal('hide');
+          });
+
+          $('#close').on('click', function() {
+              $('#updated').hide();
+          })
+
+    });
+</script>
 
