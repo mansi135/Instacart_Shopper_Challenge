@@ -41,6 +41,9 @@ Landing page :
 ````
 ![Landing Page](./screenshots/1-Landing_ApplyNow_Page.png) 
 
+![Background Check](./screenshots/4-Background_check.png) 
+
+![Confirmation Page](./screenshots/5-Confirmation_page.png) 
 
 ## <a name="files"></a>Files
 
