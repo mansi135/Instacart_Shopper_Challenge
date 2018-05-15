@@ -78,7 +78,7 @@ Landing page :
  Used flask session to store email of logged in user.
 
 * Here is a view of Application Status Page (Please see screenshots folder for detailed user flow)
-![Application Status Page](./screenshots/6-View_Application_status_page.png) 
+![Application Status Page](./screenshots/8-Updated_application_page.png) 
 
 
 ## <a name="ajax"></a> AJAX
