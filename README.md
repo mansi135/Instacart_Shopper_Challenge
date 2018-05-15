@@ -2,8 +2,8 @@
 ** Please Note: **
 
     Even though this problem doesn't requires the new applicant to be persisted in database,
-    I made my own Postgres database to check if existing user can login. Hence to run the program, please make sure Postgres is installed in your system and createdb 'instacart_shopper'.
-    I am not persisting the new users in database, instead just displaying on console
+    I made my own Postgres database to check if existing user can login. Hence to run the program, please make sure Postgres is installed in your system and createdb 'instacart_shoppers'.
+    I am not persisting the new users in databaseas per the requirement, instead just displaying it on console
 
 ## Table of Contents
 * [Technologies used](#technologiesused)
@@ -32,13 +32,15 @@ Clone this repo and cd into cloned repo. Then do the following steps:
 2) > source env/bin/activate
 3) > pip install -r requirements.txt
 4) > createdb instacart_shoppers
-5) > seed database if you like
+5) > seed database if you like (refer to model.py for schema)
 6) > python server.py (this step will start the server on port 5000)
 
 Landing page :
 `http://localhost:5000/`
 
 ````
+![Landing Page](./screenshots/1-Landing_ApplyNow_Page.png) 
+
 
 ## <a name="files"></a>Files
 
@@ -46,6 +48,8 @@ Landing page :
 * model.py -> contains database schema
 * tests.py -> contains integration tests
 * applicant_analysis.sh -> bash script for doing analysis of applicants' status
+* templates/* -> HTML files
+* static/css/* -> Styling files
 
 ## <a name="endpoints"></a>Description of API end-points
 
@@ -90,7 +94,7 @@ In order to run tests, please run the following command
 ```
 
 
-## <a name="script"></a> [Running the backend command-line bash script for Part2]
+## <a name="script"></a> Running the backend command-line bash script for Part2
 
 * applicant_analysis.sh is the executable bash script that emits CSV data creating weekly workflow
 * Please make sure that the database file 'applicants.sqlite3' is in the same directory as applicant_analysis.sh
@@ -98,7 +102,7 @@ In order to run tests, please run the following command
 * run the script as follows:
 ```
 ./applicant_analysis.sh start_date end_date
-For ex,
+For example,
 ./applicant_analysis.sh "2014-01-01" "2015-01-01"
 ```
 
