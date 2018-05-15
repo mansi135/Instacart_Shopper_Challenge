@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% block title %}Confirmation{% endblock %}
+
+{% block content %}
+
+<!-- Confirmation Modal -->
+<div class="modal fade" role="dialog" data-backdrop="static" data-keyboard="false" id="confirm-modal" style="margin-top: 5em">
+      <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header" style="padding:25px 50px">
+                <!-- <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button> -->
+                <h4 class="modal-title">Successfully Applied</h4>
+              </div>
+              <div class="modal-body" style="padding:40px 50px;">
+                <!-- <form role="form" action="/bbb" method="POST" id="bbb"> -->
+                    <p> Thank You for your interest in Instacart! </p><br>
+
+                    <p> Your application has been received. We will get back to you within next 5-10 business days. In the meantime, you can view your current application or update it should you feel any changes are necessary. </p>
+
+
+                    <a href="/view-application" class="btn btn-success btn-block" id="app">View Application</a>
+                    <!-- <button type="submit" class="btn btn-success" style="float: right;">Agree</button> -->
+                <!-- </form> -->
+              </div>
+            </div>
+      </div>
+ </div>
+
+
+{% endblock %}
+
+{% block javascript %}
+
+<script type="text/javascript">
+    
+    $(document).ready(function(){    
+        $('#confirm-modal').modal('show');
+    });
+
+</script>
+
+{% endblock %}
