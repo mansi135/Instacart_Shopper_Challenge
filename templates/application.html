@@ -1,0 +1,122 @@
+<!doctype html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="Mansi">
+    <title>Application Status</title>
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <link rel="stylesheet" href="/static/css/application.css">
+
+</head>
+
+<body>
+
+   <!-- Bootstrap Navbar -->
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                
+                <p class="navbar-header"><img src="/static/images/insta.png" width="150px" height="100px" style="margin-top: 0"></p>
+                <p class="navbar-brand" style="margin-top: 1.5em; margin-left: 20em;"><b>Welcome <span id="welcome-name">{{ shopper.first_name.title() }}</span></b></p>
+            </div>
+            <div id="navbar" class="navbar-collapse collapse">
+                <ul class="nav navbar-nav navbar-right">
+                  <li><a href="#" data-toggle="modal" data-target="#edit-modal"><span class="glyphicon glyphicon-pencil"></span> <b style="color: #0000EE">Edit Application</b><span id="msg"></span></a></li>
+                  <li><a href="/logout"><span class="glyphicon glyphicon-log-out"></span> <b style="color: #0000EE">Logout</b><span id="msg"></span></a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+
+<div class="container">
+  <div class="row">      
+      
+      <div id="updated" class="updated">
+        <p id="inner" style="padding-top: 20px;"></p>
+        <button id="close">OK</button>
+      </div>
+
+      <h3> Application Status </h3> <br><br>
+
+      <table class="table table-hover table-striped">
+        <tr>
+          <th>Application ID :</th>
+          <td>{{ shopper._id }}</td>
+        </tr>
+        <tr>
+          <th>First Name :</th>
+          <td id="fname">{{ shopper.first_name.title() }}</td>
+        </tr>
+        <tr>
+          <th>Last Name :</th>
+          <td id="lname">{{ shopper.last_name.title() }}</td>              
+        </tr>
+        <tr>
+          <th>Email Address :</th>
+          <td id="email">{{ shopper.email }}</td>
+        </tr>
+        <tr>
+          <th>Phone Number :</th>
+          <td id="phone">{{ shopper.phone }}</td>
+        </tr>
+        <tr>
+          <th>Applied On:</th>
+          <td>{{ shopper.date_applied }}</td>
+        </tr>
+        <tr>
+          <th>Status :</th>
+          <td>{{ shopper.status }}</td>
+        </tr>
+      </table>
+    
+  </div>
+</div>
+
+
+    
+<!-- Edit Application Modal -->
+<div class="modal fade" role="dialog" data-backdrop="static" data-keyboard="false" id="edit-modal" style="margin-top: 5em">
+      <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header" style="padding:25px 50px">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">Edit Appliction</h4>
+              </div>
+              <div class="modal-body" style="padding:40px 50px;">
+                <form role="form" action="/edit-application" method="POST" id="edit">
+                    <div class="form-group">
+                      <label for="email"> Email</label>
+                      <input type="email" class="form-control" name="email" value="{{ shopper.email }}">
+                    </div>
+                    <div class="form-group">
+                      <label for="fname">First Name</label>
+                      <input type="text" class="form-control" name="fname" value="{{ shopper.first_name.title() }}">
+                    </div>
+                    <div class="form-group">
+                      <label for="fname">Last Name</label>
+                      <input type="text" class="form-control" name="lname" value="{{ shopper.last_name.title() }}">
+                    </div>
+                    <div class="form-group">
+                      <label for="phone">Phone</label>
+                      <input type="text" class="form-control" name="phone" pattern="[1-9][0-9]{9}" value="{{ shopper.phone }}">
+                    </div>                      
+                    
+                    <button type="submit" class="btn btn-success" style="float: right;">Update</button>
+                </form>
+                <button class="btn btn-success" id="cancel">Cancel</button>
+              </div>
+            </div>
+      </div>
+ </div>
+
+
+</body>
+
+
+
